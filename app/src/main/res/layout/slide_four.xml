@@ -6,11 +6,17 @@
     android:id="@+id/main_rl"
    >
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/play"
-        android:id="@+id/play_iv"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
+        <ImageView
+            android:id="@+id/play_iv"
+            android:layout_width="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/play" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,5 +46,5 @@
         android:layout_toEndOf="@+id/play_iv" />
 
 
-
+</RelativeLayout>
 </RelativeLayout>

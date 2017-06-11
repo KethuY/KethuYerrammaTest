@@ -53,6 +53,7 @@ public class VideoFragment extends Fragment {
 
     private void addingVideoDataToArrLst() {
         Random ra = new Random();
+       // mVideoArrayList.clear();
         int[] images = {R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja, R.drawable.raviteja};
 
         for (int i = 0; i < 10; i++) {
@@ -63,7 +64,9 @@ public class VideoFragment extends Fragment {
             video.setResouce(images[i]);
             video.setDesc("Kick is a 2014 Indian action film produced and directed by Sajid Nadiadwala under his Nadiadwala Grandson Entertainment banner." + (i + 1));
             mVideoArrayList.add(video);
-            mMyVideoAdapter.notifyDataSetChanged();
+
         }
+
+        mMyVideoAdapter.notifyDataSetChanged();
     }
 }

@@ -129,6 +129,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
             LinearLayout.LayoutParams par = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             par.width = 10;
             par.height = 10;
+            par.leftMargin=5;
             tv.setLayoutParams(par);
 
             if (pos == i) {
@@ -142,14 +143,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         }
     }
 
-    private void selectDot(int idx) {
-        Resources res = getResources();
-        for (int i = 0; i < layouts.length; i++) {
-            int drawableId = (i == idx) ? (R.drawable.selected_oval) : (R.drawable.unselected_oval);
-            Drawable drawable = res.getDrawable(drawableId);
-            dots.get(i).setImageDrawable(drawable);
-        }
-    }
+
 
     private void setUpToolBarDrawerAndNavigationView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

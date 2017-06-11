@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/album1"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="70dp">
+
+        <ImageView
+            android:id="@+id/play_iv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/play" />
+
+        <TextView
+            android:id="@+id/main_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/play_iv"
+            android:layout_toEndOf="@+id/play_iv"
+            android:layout_toRightOf="@+id/play_iv"
+            android:paddingLeft="10dp"
+            android:text="@string/main_text1"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/main_tv"
+            android:layout_toEndOf="@+id/play_iv"
+            android:layout_toRightOf="@+id/play_iv"
+            android:gravity="start"
+            android:paddingLeft="10dp"
+            android:text="@string/sub_text1"
+            android:textAlignment="gravity"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

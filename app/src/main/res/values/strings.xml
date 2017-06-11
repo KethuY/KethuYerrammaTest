@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">KethuYerrammaTest</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="main_text1">Main Text1</string>
+    <string name="sub_text1">Sub Text1</string>
+    <string name="main_text2">Main Text2</string>
+    <string name="sub_text2">Sub Text2</string>
+    <string name="main_text3">Main Text3</string>
+    <string name="sub_text3">Sub Text3</string>
+    <string name="main_text4">Main Text4</string>
+    <string name="sub_text4">Sub Text4</string>
+    <string name="main_text5">Main Text5</string>
+    <string name="sub_text5">Sub Text5</string>
+    <string name="videos">Videos</string>
+    <string name="images">Images</string>
+    <string name="milestone">MileStone</string>
+</resources>

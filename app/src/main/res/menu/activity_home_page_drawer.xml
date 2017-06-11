@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_video"
+
+            android:icon="@drawable/video"
+            android:title="@string/videos" />
+        <item
+            android:id="@+id/nav_img"
+            android:icon="@drawable/img"
+            android:title="@string/images" />
+        <item
+            android:id="@+id/nav_milestone"
+            android:icon="@drawable/mile"
+            android:title="@string/milestone" />
+
+    </group>
+
+
+</menu>

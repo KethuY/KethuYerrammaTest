@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.satya.kethuyerrammatest.R;
-import com.satya.kethuyerrammatest.adapters.BottomViewPageAdapter;
+import com.satya.kethuyerrammatest.adapters.BtmViewPageAdapter;
 import com.satya.kethuyerrammatest.adapters.TopViewPagerAdapter;
 import com.satya.kethuyerrammatest.fragments.ImageFragment;
 import com.satya.kethuyerrammatest.fragments.MileStoneFragment;
@@ -27,7 +27,7 @@ import com.satya.kethuyerrammatest.fragments.VideoFragment;
 
 import java.util.ArrayList;
 
-public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,TabLayout.OnTabSelectedListener {
+public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
 
     private ViewPager mTopViewPager;
     private LinearLayout dotsLayout;
@@ -36,6 +36,12 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
     private ArrayList<ImageView> dots;
     private ViewPager mBottomViewPager;
     private TabLayout mTabLayout;
+    private int[] tabIcons = {
+            R.drawable.video,
+            R.drawable.img,
+            R.drawable.mile
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,36 +71,45 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
 
     private void setUpBottomViewPager() {
         mBottomViewPager = (ViewPager) findViewById(R.id.bottom_view_pager);
-        BottomViewPageAdapter adapter = new BottomViewPageAdapter(getSupportFragmentManager());
+        BtmViewPageAdapter adapter = new BtmViewPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new VideoFragment(), "Videos");
         adapter.addFragment(new ImageFragment(), "Images");
-        adapter.addFragment(new MileStoneFragment(), "MileStoneFragment");
+        adapter.addFragment(new MileStoneFragment(), "MileStone");
         mBottomViewPager.setAdapter(adapter);
 
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mBottomViewPager);
         mTabLayout.setOnTabSelectedListener(this);
-        setupTabIcons();
+        setupTabIcon();
+
+        Drawable icon = mTabLayout.getTabAt(0).getIcon();
+        if (icon != null) {
+            icon.setColorFilter(ContextCompat.getColor(HomePageActivity.this, R.color.colorAccent), PorterDuff.Mode.SRC_IN);
+        }
+        mBottomViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
-    private void setupTabIcons() {
-        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_header, null);
-        tabOne.setText("Videos");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.video, 0, 0);
-        mTabLayout.getTabAt(0).setCustomView(tabOne);
-
-        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_header, null);
-        tabTwo.setText("Images");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img, 0, 0);
-        mTabLayout.getTabAt(1).setCustomView(tabTwo);
-
-        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.tab_header, null);
-        tabThree.setText("Milestone");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.mile, 0, 0);
-        mTabLayout.getTabAt(2).setCustomView(tabThree);
-
-
+    private void setupTabIcon() {
+        mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        mTabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        mTabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
+
 
     ViewPager.OnPageChangeListener topViewPageChangeListener = new ViewPager.OnPageChangeListener() {
 
@@ -125,7 +140,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
             LinearLayout.LayoutParams par = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             par.width = 10;
             par.height = 10;
-            par.leftMargin=5;
+            par.leftMargin = 5;
             tv.setLayoutParams(par);
 
             if (pos == i) {
@@ -138,7 +153,6 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
             dotsLayout.addView(tv);
         }
     }
-
 
 
     private void setUpToolBarDrawerAndNavigationView() {
@@ -191,15 +205,15 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         Drawable icon = tab.getIcon();
-        if(icon != null) {
-            icon.setColorFilter(ContextCompat.getColor(HomePageActivity.this,R.color.colorAccent), PorterDuff.Mode.SRC_IN);
+        if (icon != null) {
+            icon.setColorFilter(ContextCompat.getColor(HomePageActivity.this, R.color.colorAccent), PorterDuff.Mode.SRC_IN);
         }
     }
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
         Drawable icon = tab.getIcon();
-        if(icon != null) {
+        if (icon != null) {
             icon.setColorFilter(null);
         }
     }

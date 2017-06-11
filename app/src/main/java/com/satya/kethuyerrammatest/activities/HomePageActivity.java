@@ -1,24 +1,16 @@
 package com.satya.kethuyerrammatest.activities;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.constraint.solver.ArrayLinkedVariables;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,7 +56,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         mTopViewPager = (ViewPager) findViewById(R.id.top_view_pager);
         mTopViewPageAdapter = new TopViewPagerAdapter(HomePageActivity.this);
         mTopViewPager.setAdapter(mTopViewPageAdapter);
-        mTopViewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+        mTopViewPager.addOnPageChangeListener(topViewPageChangeListener);
         addBottomDots(0);
     }
 
@@ -100,7 +92,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
 
     }
 
-    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+    ViewPager.OnPageChangeListener topViewPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {

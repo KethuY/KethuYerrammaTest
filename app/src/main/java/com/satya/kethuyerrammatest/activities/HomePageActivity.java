@@ -1,8 +1,11 @@
 package com.satya.kethuyerrammatest.activities;
 
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -24,7 +27,7 @@ import com.satya.kethuyerrammatest.fragments.VideoFragment;
 
 import java.util.ArrayList;
 
-public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,TabLayout.OnTabSelectedListener {
 
     private ViewPager mTopViewPager;
     private LinearLayout dotsLayout;
@@ -70,6 +73,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
 
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mBottomViewPager);
+        mTabLayout.setOnTabSelectedListener(this);
         setupTabIcons();
     }
 
@@ -184,4 +188,24 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
     }
 
 
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        Drawable icon = tab.getIcon();
+        if(icon != null) {
+            icon.setColorFilter(ContextCompat.getColor(HomePageActivity.this,R.color.colorAccent), PorterDuff.Mode.SRC_IN);
+        }
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+        Drawable icon = tab.getIcon();
+        if(icon != null) {
+            icon.setColorFilter(null);
+        }
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }

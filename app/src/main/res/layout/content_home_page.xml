@@ -28,36 +28,6 @@
             android:layout_marginBottom="20dp"
             android:orientation="horizontal" >
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:padding="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/unselected_oval"/>
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:padding="3dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/unselected_oval"/>
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:padding="3dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/unselected_oval"/>
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:padding="3dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/unselected_oval"/>
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:padding="3dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/unselected_oval"/>
         </LinearLayout>
 
 

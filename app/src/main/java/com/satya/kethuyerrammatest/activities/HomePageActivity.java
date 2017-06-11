@@ -122,20 +122,24 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
     private void addBottomDots(int pos) {
         dots = new ArrayList<>();
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+        dotsLayout.removeAllViews();
 
-        for (int i = 0; i < dotsLayout.getChildCount(); i++) {
-            TextView tv;
+        for (int i = 0; i < layouts.length; i++) {
+            TextView tv = new TextView(this);
+            LinearLayout.LayoutParams par = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            par.width = 10;
+            par.height = 10;
+            tv.setLayoutParams(par);
+
             if (pos == i) {
-                tv = (TextView) dotsLayout.getChildAt(i);
+
                 tv.setBackgroundResource(R.drawable.selected_oval);
-            }else{
-                tv = (TextView) dotsLayout.getChildAt(i);
+            } else {
                 tv.setBackgroundResource(R.drawable.unselected_oval);
             }
 
+            dotsLayout.addView(tv);
         }
-
-
     }
 
     private void selectDot(int idx) {
